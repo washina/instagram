@@ -15,7 +15,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
-
+    @IBOutlet weak var inputComment: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,6 +28,12 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    /* コメント処理 -----------------------------------------------------------------------------*/
+    @IBAction func commentButton(_ sender: Any) {
+        
+    }
+    /* コメント処理 end--------------------------------------------------------------------------*/
+
     func setPostData(postData: PostData) {
         self.postImageView.image = postData.image
         
@@ -49,5 +56,4 @@ class PostTableViewCell: UITableViewCell {
             self.likeButton.setImage(buttonImage, for: UIControlState.normal)
         }
     }
-    
 }

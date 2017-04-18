@@ -45,6 +45,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="qOL-h8-ShL" firstAttribute="top" secondItem="tNU-XZ-Q1s" secondAttribute="bottom" constant="25" id="LWR-pz-21I"/>
                             <constraint firstItem="tNU-XZ-Q1s" firstAttribute="leading" secondItem="bJ6-pz-UeC" secondAttribute="leadingMargin" id="PkI-T2-G4e"/>
@@ -59,6 +60,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9D-bs-rg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="801" y="421"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gfV-lh-y1k">
+            <objects>
+                <viewController id="CxE-jR-GfA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fS7-tt-06s"/>
+                        <viewControllerLayoutGuide type="bottom" id="XDO-5Z-mQ2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yKF-XN-2ML">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ynG-oT-611" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1732" y="423"/>
         </scene>
         <!--Image Select View Controller-->
         <scene sceneID="yVU-94-WnM">
@@ -184,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zxa-WL-MaZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="420"/>
+            <point key="canvasLocation" x="2751" y="421"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Yqx-qN-i6r">
