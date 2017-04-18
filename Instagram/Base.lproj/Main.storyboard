@@ -160,7 +160,7 @@
                                 </constraints>
                                 <state key="normal" title="キャンセル" backgroundImage="btn"/>
                                 <connections>
-                                    <action selector="hundleCancelButton:" destination="FZB-Qp-ele" eventType="touchUpInside" id="Wr3-aE-Ftd"/>
+                                    <action selector="handleCancelButton:" destination="FZB-Qp-ele" eventType="touchUpInside" id="LwX-tX-R0g"/>
                                 </connections>
                             </button>
                         </subviews>
