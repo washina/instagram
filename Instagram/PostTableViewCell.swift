@@ -15,7 +15,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var inputComment: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +29,9 @@ class PostTableViewCell: UITableViewCell {
     
     /* コメント処理 -----------------------------------------------------------------------------*/
     @IBAction func commentButton(_ sender: Any) {
-        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let commentView = storyboard.instantiateViewController(withIdentifier: "comment") as! CommentViewController
+        self.window?.rootViewController?.present(commentView, animated: true, completion: nil)
     }
     /* コメント処理 end--------------------------------------------------------------------------*/
 

@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         // 真ん中のタブはボタンとして扱う
         tabBarController.highlightButton(at: 1)
         tabBarController.setAction({
-            // ボタンが押されたらImageViewControllerをモーダルで表示する
+            // ボタンが押されたらImageSelectViewControllerをモーダルで表示する
             let imageViewController = self.storyboard?.instantiateViewController(withIdentifier: "ImageSelect")
             self.present(imageViewController!, animated: true, completion: nil)
         }, at: 1)
