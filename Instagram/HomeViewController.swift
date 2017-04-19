@@ -35,18 +35,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
         tableView.rowHeight = UITableViewAutomaticDimension
-        
-        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        self.view.addGestureRecognizer(tapGesture)
     }
-    
-    func dismissKeyboard() {
-        // キーボードを閉じる
-        view.endEditing(true)
-    }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -127,7 +116,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.setPostData(postData: postArray[indexPath.row])
         
         // セル内のボタンのアクションをソースコードで設定する
-        cell.likeButton.addTarget(self, action:#selector(handleButton(sender:event:)), for:  UIControlEvents.touchUpInside)
+        cell.likeButton.addTarget(self, action: #selector(handleButton(sender:event:)), for:  UIControlEvents.touchUpInside)
+        cell.commentButton.addTarget(self, action: #selector(commentButton(sender:event:)), for: UIControlEvents.touchUpInside)
         
         return cell
     }
@@ -175,10 +165,33 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let postRef = FIRDatabase.database().reference().child(Const.PostPath).child(postData.id!)
             let likes = ["likes": postData.likes]
             postRef.updateChildValues(likes)
-            
         }
     }
+    
+    /* コメントボタン処理 --------------------------------------------------------------------------------------*/
+    func commentButton(sender: UIButton, event: UIEvent) {
+        print("DEBUG_PRINT: commentボタンがタップされました。")
+        
+        // インスタンス生成
+        let commentView = storyboard!.instantiateViewController(withIdentifier: "comment") as! CommentViewController
 
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        
+        // CommentViewControllerにタップされたPostDataを送る
+        commentView.postData = postData
+        
+        // コメント入力をさせるCommentViewControllerへ画面遷移
+        self.present(commentView, animated: true, completion: nil)
+    }
+    /* コメントボタン処理 end-----------------------------------------------------------------------------------*/
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

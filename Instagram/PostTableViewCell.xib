@@ -61,9 +61,6 @@
                             <constraint firstAttribute="width" constant="40" id="tc2-85-gAc"/>
                         </constraints>
                         <state key="normal" backgroundImage="comment"/>
-                        <connections>
-                            <action selector="commentButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BWF-yM-ELz"/>
-                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -89,6 +86,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="captionLabel" destination="Bg0-nn-9x1" id="BkK-cz-naS"/>
+                <outlet property="commentButton" destination="TQI-NF-tiO" id="18K-f9-UU1"/>
                 <outlet property="dateLabel" destination="L3X-ld-MjK" id="47n-8c-tCs"/>
                 <outlet property="likeButton" destination="rKt-ZZ-PFC" id="B1e-ux-Zc4"/>
                 <outlet property="likeLabel" destination="vjg-Sb-fxe" id="Uba-6G-hyt"/>

@@ -169,12 +169,12 @@
 				D85833A31EA49EF500C62CF6 /* PostData.swift */,
 				D85833A51EA4A12C00C62CF6 /* PostTableViewCell.swift */,
 				D85833A61EA4A12C00C62CF6 /* PostTableViewCell.xib */,
+				D860BE851EA60AA1005A5443 /* CommentViewController.swift */,
 				D820A4F01EA091E900088565 /* SettingViewController.swift */,
 				D820A4DF1EA0907D00088565 /* LaunchScreen.storyboard */,
 				D820A4E21EA0907D00088565 /* Info.plist */,
 				D820A4F21EA0A2A400088565 /* GoogleService-Info.plist */,
 				D85833A01EA4928400C62CF6 /* Instagram-Bridging-Header.h */,
-				D860BE851EA60AA1005A5443 /* CommentViewController.swift */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";

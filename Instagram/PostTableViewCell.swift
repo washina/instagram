@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
@@ -26,14 +30,6 @@ class PostTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    /* コメント処理 -----------------------------------------------------------------------------*/
-    @IBAction func commentButton(_ sender: Any) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let commentView = storyboard.instantiateViewController(withIdentifier: "comment") as! CommentViewController
-        self.window?.rootViewController?.present(commentView, animated: true, completion: nil)
-    }
-    /* コメント処理 end--------------------------------------------------------------------------*/
 
     func setPostData(postData: PostData) {
         self.postImageView.image = postData.image
