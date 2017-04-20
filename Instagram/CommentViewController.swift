@@ -25,10 +25,6 @@ class CommentViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-//        // test
-//        print(self.postData.caption!)
-//        print(self.postData.id!)
-        
         // 各データの表示処理
         // image
         self.getImageView.image = postData.image
@@ -46,6 +42,7 @@ class CommentViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
     }
     
+    /* コメント保存処理 -------------------------------------------------------------------------------------------------*/
     @IBAction func commentPostButton(_ sender: Any) {
         // コメント入力欄にコメントが入っているかの条件分岐
         if inputCommentTextField.text != "" {
@@ -65,6 +62,7 @@ class CommentViewController: UIViewController {
             SVProgressHUD.showError(withStatus: "コメントを入力して下さい")
         }
     }
+    /* コメント保存処理 end----------------------------------------------------------------------------------------------*/
     
     // キーボードを閉じる
     func dismissKeyboard() {
