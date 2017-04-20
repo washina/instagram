@@ -174,7 +174,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // インスタンス生成
         let commentView = storyboard!.instantiateViewController(withIdentifier: "comment") as! CommentViewController
-
         
         // タップされたセルのインデックスを求める
         let touch = event.allTouches?.first

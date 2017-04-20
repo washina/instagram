@@ -49,10 +49,13 @@ class CommentViewController: UIViewController {
     @IBAction func commentPostButton(_ sender: Any) {
         // コメント入力欄にコメントが入っているかの条件分岐
         if inputCommentTextField.text != "" {
+            // コメントしているユーザーの表示名を取得
+            let name = FIRAuth.auth()?.currentUser?.displayName
+            
             // インスタンス作成->commentを格納
-            let postRef = FIRDatabase.database().reference().child(Const.PostPath)
-            let postData = ["comment": inputCommentTextField.text!]
-            postRef.child(self.postData.id!).updateChildValues(postData)
+            let postRef = FIRDatabase.database().reference().child(Const.PostPath).child(self.postData.id!)
+            let postData = ["comments": [["name": name, "comment": inputCommentTextField.text!]]]
+            postRef.updateChildValues(postData)
             
             // HUDで投稿完了を表示する
             SVProgressHUD.showSuccess(withStatus: "投稿しました")
