@@ -51,8 +51,9 @@ class CommentViewController: UIViewController {
             
             // インスタンス作成->commentを格納
             let postRef = FIRDatabase.database().reference().child(Const.PostPath).child(self.postData.id!)
-            let postData = ["comments": [["name": name, "comment": inputCommentTextField.text!]]]
-            postRef.updateChildValues(postData)
+            var comments = self.postData.comments
+            comments.append(["commenterName": name!, "commentText": inputCommentTextField.text!])
+            postRef.updateChildValues(["comments": comments])
             
             // HUDで投稿完了を表示する
             SVProgressHUD.showSuccess(withStatus: "投稿しました")
