@@ -13,6 +13,7 @@ import SVProgressHUD
 
 class CommentViewController: UIViewController {
     
+    @IBOutlet weak var scvBackGround: UIScrollView!
     @IBOutlet weak var getImageView: UIImageView!
     @IBOutlet weak var getDateLabel: UILabel!
     @IBOutlet weak var getCaptionLabel: UILabel!
@@ -37,9 +38,9 @@ class CommentViewController: UIViewController {
         // name & caption
         self.getCaptionLabel.text = "\(postData.name!) : \(postData.caption!)"
         
-        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        self.view.addGestureRecognizer(tapGesture)
+//        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
+//        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//        self.view.addGestureRecognizer(tapGesture)
     }
     
     /* コメント保存処理 -------------------------------------------------------------------------------------------------*/
@@ -65,9 +66,16 @@ class CommentViewController: UIViewController {
     }
     /* コメント保存処理 end----------------------------------------------------------------------------------------------*/
     
-    // キーボードを閉じる
-    func dismissKeyboard() {
-        view.endEditing(true)
+//    // キーボードを閉じる
+//    func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
+    
+    //改行ボタンが押された際に呼ばれる.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
 
     override func didReceiveMemoryWarning() {

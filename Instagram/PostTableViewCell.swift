@@ -19,7 +19,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var commenterLabel: UILabel!
     @IBOutlet weak var commentTextLabel: UILabel!
     
     override func awakeFromNib() {
@@ -48,20 +47,21 @@ class PostTableViewCell: UITableViewCell {
         self.dateLabel.text = dateString
 
         // comments取り出し処理
-        for var loopCount in 0 ..< postData.comments.count {
-            if postData.comments[loopCount] == ["":""] {
-                print("none")
-                self.commenterLabel.isHidden = true
-                self.commentTextLabel.isHidden = true
-            } else {
-                print(postData.comments[loopCount])
-                let commenterName = postData.comments[loopCount]["commenterName"]
-                self.commenterLabel.text = "\(commenterName!)  さんからのコメント"
-                self.commentTextLabel.text = postData.comments[loopCount]["commentText"]
+        // コメント入力者の表示名とコメントをキャストするcommentTextDataを作成
+        var commentTextData: String = ""
+        for var loopCount in 0 ..< postData.comments.count  {
+            if postData.comments[loopCount] != ["":""] {
+                commentTextData += postData.comments[loopCount]["commenterName"]!
+                commentTextData += ":  "
+                commentTextData += postData.comments[loopCount]["commentText"]!
+                commentTextData += "\n"
+                
                 loopCount += 1
             }
         }
-
+        // コメントを格納したcommentTextDataをUILabelに表示
+        self.commentTextLabel.text = commentTextData
+        
         
         if postData.isLiked {
             let buttonImage = UIImage(named: "like_exist")
